@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script> 
+
+        const apellidos1 = [
+            "Potter", "Granger", "Weasley", "Dumbledore", "Snape", "Hagrid",
+            "Black", "Lupin", "Longbottom", "Malfoy", "Lovegood", "Diggory",
+            "Lestrange", "McGonagall", "Delacour", "Krum", "Dursley", "Filch",
+            "Fudge", "Slughorn", "Lockhart", "Moody", "Tonks", "Maxime",
+            "Flitwick", "Trelawney", "Umbridge", "Crouch", "Bagshot", "Creevey",
+            "Vance", "Bell", "Carrow", "Cattermole", "Chang", "Crabbe",
+            "Dawlish", "Dirk", "Dolohov", "Fenrir", "Figg", "Finnigan",
+            "Fletcher", "Goyle", "Greyback", "Gudgeon", "Hooch", "Hooper",
+            "Jordan", "Kirke", "Kreacher", "Macmillan", "Malkin", "Nott",
+            "Pettigrew", "Pomfrey", "Prewett", "Pucey", "Quirrell", "Scamander",
+            "Scrimgeour", "Shacklebolt", "Shunpike", "Skeeter", "Sprout", "Vane",
+            "Vector", "Voldemort", "Winky", "Zabini", "Abbot", "Ackerley",
+            "Avery", "Baddock", "Bagman", "Bagnold", "Bones", "Bole",
+            "Brocklehurst", "Bulstrode", "Edgecombe", "Elias", "Evans", "Fawcett",
+            "Flint", "Gamp", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Abbott", "Brocklehurst", "Bulstrode", "Edgecombe",
+            "Elias", "Fawcett", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Ackerley", "Avery", "Baddock", "Bagman",
+            "Bagnold", "Bole", "Bones", "Carrow", "Cattermole", "Chang",
+            "Crabbe", "Dirk", "Dolohov", "Fenrir", "Figg", "Finnigan",
+            "Fletcher", "Goyle", "Hooch", "Hooper", "Jordan", "Kirke",
+            "Kreacher", "Malkin", "Pomfrey", "Prewett", "Pucey", "Scamander",
+            "Shacklebolt", "Shunpike", "Skeeter", "Vance", "Vector", "Winky",
+            "Zabini", "Abbot", "Ackerley", "Avery", "Baddock", "Bagman",
+            "Bagnold", "Bole", "Brocklehurst", "Edgecombe", "Elias", "Fawcett",
+            "Flint", "Gamp", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley"
+        ];
+        
+        const apellidos2 = [
+            "Martin", "Bernard", "Dubois", "Thomas", "Robert", "Richard", "Petit", "Durand", "Leroy", "Moreau",
+            "Simon", "Laurent", "Lefebvre", "Michel", "Garcia", "Davis", "Bertrand", "Roux", "Vincent", "Fournier",
+            "Morel", "Girard", "Andre", "Lefevre", "Mercier", "Dupont", "Lambert", "Bonnet", "Francois", "Martinez",
+            "Legrand", "Garnier", "Faure", "Rousseau", "Blanc", "Gauthier", "Sauvage", "Nicolas", "Muller", "Henry",
+            "Lucas", "Brun", "Fontaine", "Chevalier", "Dufour", "Leclerc", "Perrin", "Perez", "Colin", "Roussel",
+            "Huet", "Maillard", "Monnier", "Benoit", "Rey", "Schmitt", "Lemoine", "Leroux", "Marchand", "Jacquet",
+            "Caron", "Rodriguez", "Arnaud", "Barre", "Noel", "Robin", "Pierre", "Michaud", "Guerin", "Joly", "Etienne",
+            "Luc", "Duval", "Guillaume", "Leclercq", "Rolland", "Herbert", "Barbier", "Toussaint", "Denis", "Fabre",
+            "Deschamps", "Roy", "Giraud", "Meyer", "Lefort", "Le gall", "Boucher", "Collet", "Le roux", "Pelletier",
+            "Paris", "Riviere", "Leclerc", "Weber", "Adam", "Lefevre", "Boulanger", "Besson", "Millet", "Aubert",
+            "Fernandez", "Colomb", "Renard", "Boucher", "Lebrun", "Picard", "Chevalier", "Fleury", "Vidal", "Renaud",
+            "Philippe", "Leclercq", "Charpentier", "Bailly", "Royer", "Lefort", "Lefebvre", "Leger", "Poulain", "Remy",
+            "Schneider", "Carre", "Barreau", "Perrot", "Guyot", "Maury", "Barthélémy", "Clement", "Daniel", "Joubert",
+            "Klein", "Leclerc", "Marchal", "Lejeune", "Berger", "Blanchard", "Colin", "Paris", "Marty", "Louis", "Jean",
+            "Roche", "Bruneau", "Lemoine", "Nicolas", "Paris", "Jacques", "Pascal", "Guilbert", "Leclerc", "Lambert",
+            "Doucet", "Mallet", "Breton", "Martel", "Lamy", "Barré", "Hamon", "Hebert", "Reynaud", "Chauvin", "Baron",
+            "Jolivet", "Bail", "Julien", "Michon", "Dubois", "Vasseur", "Mars", "Perrier", "Gillet", "Lamour", "Delaunay",
+            "Daniel", "Roy", "David", "Henry", "Rocher", "Vial", "Schmitt", "Roche", "Chauvet", "Lacoste", "Rousset",
+            "Valette", "Delorme", "Alves", "Sauvage", "Roux", "Garcia", "Ferreira", "Boulanger", "Guyon", "Lelievre",
+            "Deschamps", "Coulon", "Guichard", "Durand", "Thibault", "Delaunay", "Laurent", "Guillot", "Grondin",
+            "Mallet", "Picard", "Baudoin", "Blanchet", "Lacroix", "Bonneau", "Boutin", "Hervé", "Breton", "Da silva"
+        ];
+
+        const nombresHarryPotter = [
+            "Harry", "Hermione", "Ron", "Albus", "Severus", "Rubeus",
+            "Sirius", "Remus", "Neville", "Ginny", "Fred", "George",
+            "Luna", "Draco", "Cho", "Cedric", "Bellatrix", "Minerva",
+            "Dobby", "Fleur", "Viktor", "Dudley", "Argus", "Cornelius",
+            "Horace", "Molly", "Arthur", "Percy", "Bill", "Charlie",
+            "Kingsley", "Lucius", "Narcissa", "Gilderoy", "Mad-Eye", "Nymphadora",
+            "Kreacher", "Olympe", "Filius", "Peeves", "Nearly Headless", "Sybill",
+            "Aberforth", "Dolores", "Quirinus", "Gellert", "Dedalus", "Pomona",
+            "Filius", "Helena", "Rowena", "Godric", "Salazar", "Cuthbert",
+            "Barty", "Phineas", "Cedric", "Dilys", "Elphias", "Florean",
+            "Fortescue", "Garrick", "Gideon", "Ignotus", "Isolt", "James",
+            "Kendra", "Marietta", "Marvolo", "Modesty", "Mundungus", "Myrtle",
+            "Newt", "Nicolas", "Percival", "Regulus", "Rolanda", "Rufus",
+            "Septima", "Sturgis", "Wilhelmina", "Alastor", "Albert", "Alecto",
+            "Amos", "Andromeda", "Antonin", "Arabella", "Astoria", "Bathilda",
+            "Belladonna", "Charity", "Cormac", "Credence", "Daphne", "Dawlish",
+            "Dirk", "Donaghan", "Doris", "Elphias", "Emmeline", "Ernest",
+            "Euan", "Fang", "Fawkes", "Fenrir", "Flora", "Frank",
+            "Fridwulfa", "Gawain", "Gornuk", "Gregory", "Griphook", "Hepzibah",
+            "Herbert", "Hestia", "Irma", "Karkaroff", "Kreacher", "Leanne",
+            "Lee", "Leta", "Mafalda", "Marge", "Marietta", "Marlene",
+            "Mary", "Minerva", "Molly", "Morfin", "Mundungus", "Nagini",
+            "Narcissa", "Newton", "Norbert", "Norris", "Olympe", "Padma",
+            "Parvati", "Peter", "Phineas", "Poppy", "Quirinus", "Regulus",
+            "Romilda", "Rosmerta", "Rowena", "Rufus", "Salazar", "Scabior",
+            "Scorpius", "Severus", "Sibyll", "Sturgis", "Sylvia", "Ted",
+            "Theodore", "Tom", "Travers", "Vernon", "Viktor", "Vincent",
+            "Wilhelmina", "Winky", "Yaxley", "Zacharias", "Zograf",
+            "Cedric", "Dilys", "Elphias", "Florean", "Fortescue", "Garrick",
+            "Gideon", "Ignotus", "Isolt", "James", "Kendra", "Marietta",
+            "Marvolo", "Modesty", "Mundungus", "Myrtle", "Newt", "Nicolas",
+            "Percival", "Regulus", "Rolanda", "Rufus", "Septima", "Sturgis",
+            "Wilhelmina", "Alastor", "Albert", "Alecto", "Amos", "Andromeda",
+            "Antonin", "Arabella", "Astoria", "Bathilda", "Belladonna", "Charity",
+            "Cormac", "Credence", "Daphne", "Dawlish", "Dirk", "Donaghan",
+            "Doris", "Elphias", "Emmeline", "Ernest", "Euan", "Fang",
+            "Fawkes", "Fenrir", "Flora", "Frank", "Fridwulfa", "Gawain",
+            "Gornuk", "Gregory", "Griphook", "Hepzibah", "Herbert", "Hestia",
+            "Irma", "Karkaroff", "Kreacher", "Leanne", "Lee", "Leta",
+            "Mafalda", "Marge", "Marietta", "Marlene", "Mary", "Minerva",
+            "Molly", "Morfin", "Mundungus", "Nagini", "Narcissa", "Newton",
+            "Norbert", "Norris", "Olympe", "Padma", "Parvati", "Peter",
+            "Phineas", "Poppy", "Quirinus", "Regulus", "Romilda", "Rosmerta",
+            "Rowena", "Rufus", "Salazar", "Scabior", "Scorpius", "Severus",
+            "Sibyll", "Sturgis", "Sylvia", "Ted", "Theodore", "Tom",
+            "Travers", "Vernon", "Viktor", "Vincent", "Wilhelmina", "Winky",
+            "Yaxley", "Zacharias", "Zograf"
+        ];
+
+        //generador de Alumnos
+        function generarAlumno(){
+            var numero = document.getElementById("CuantosNum").value;
+            var salida = "CREATE DATABASE IF NOT EXISTS universidad;<br>USE universidad;<br> CREATE TABLE IF NOT EXISTS alumnos(alumno_matricula INT(11) UNSIGNED NOT NULL UNIQUE, alumno_ap1 VARCHAR(255) NOT NULL, alumno_ap2 VARCHAR(255), alumno_nombre VARCHAR(255), alumno_correo VARCHAR(255) NOT NULL UNIQUE); <br> INSERT INTO alumnos(alumno_matricula, alumno_ap1, alumno_ap2, alumno_nombre, alumno_correo) VALUES<br><br>", matricula = 222221197;
+
+            for (let index = 1; index < numero; index++) {
+                salida += "(" + (matricula) + ", '" + apellidos1[Math.floor(Math.random() * 200)] + "','" + apellidos2[Math.floor(Math.random() * 200)] + 
+                "','" + nombresHarryPotter[Math.floor(Math.random() * 200)]+ "','"+ matricula++ + "@hogwarts.edu'),";
+
+                //terminar en ;
+                if (index == numero-1) {
+                     salida = salida.slice(0, -1) + ";";
+                }
+
+                salida += "<br>";
+            }
+            document.getElementById("salida").innerHTML = salida; 
+      }
+      
+        //generador CSV
+        function generadorCsv() {
+        var numero = document.getElementById("CuantosNum").value;
+
+        salida =
+          "<br>1," +
+          "" +
+          generarFechaAleatoria() +
+          "" +
+          "," +
+          "" +
+          generarHoraAleatoria() +
+          "" +
+          "";
+
+        for (let index = 2; index <= numero; index++) {
+          ventas +=
+            "<br>" +
+            index +
+            "," +
+            generarFechaAleatoria() +
+            "," +
+            generarHoraAleatoria() +
+            "";
+        }
+
+        document.getElementById("ola").innerHTML = salida; //termina salida
+
+        salida2 = "";
+
+        for (let i = 1; i <= numero; i++) {
+          var idVe = Math.floor(Math.random() * 10) + 1;
+          for (let j = 0; j < idVe; j++) {
+            salida2 +=
+              "" + i + "," + (Math.floor(Math.random() * 10) + 1) + "<br>";
+          }
+        }
+
+        document.getElementById("ola2").innerHTML = ventas2;
+      }
+
+        //generador JSON
+        function generadorJson() {
+        //agregar tabulaciones y descargar archivo JSON
+        var numero = document.getElementById("CuantosNum").value;
+
+        salida = `{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"venta": [<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 
+        `;
+
+        salida +=
+          "1," +
+          "<br>" +
+          `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fecha": "` +
+          generarFechaAleatoria() +
+          `",` +
+          "<br>" +
+          `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hora": "` +
+          generarHoraAleatoria() +
+          `"<br>&nbsp;&nbsp;&nbsp;&nbsp;},` +
+          "";
+
+        for (let index = 2; index <= numero; index++) {
+          salida +=
+            "<br>" +
+            `&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": ` +
+            index +
+            ",<br>" +
+            `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fecha": "` +
+            generarFechaAleatoria() +
+            `",` +
+            "<br>" +
+            `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hora": "` +
+            generarHoraAleatoria() +
+            `"<br>&nbsp;&nbsp;&nbsp;&nbsp;},`;
+        }
+
+        //validar y ajustar el último carácter
+        if (salida.endsWith(",")) {
+          salida =
+            salida.slice(0, -1) +
+            `<br>
+                    ]<br>
+                    },<br>`;
+        }
+
+        salida += `{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"venta_detalle": [
+          &nbsp;&nbsp;&nbsp;&nbsp;
+            
+        `;
+        for (let i = 1; i <= numero; i++) {
+          var idVe = Math.floor(Math.random() * 10) + 1;
+          for (let j = 0; j < idVe; j++) {
+            ventas +=
+              `<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"IDVenta": ` +
+              i +
+              ",<br>" +
+              `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"IDProducto": ` +
+              (Math.floor(Math.random() * 10) + 1) +
+              "<br>&nbsp;&nbsp;&nbsp;&nbsp;},";
+          }
+        }
+
+        if (salida.endsWith(",")) {
+          salida =
+            salida.slice(0, -1) +
+            `<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                    }<br>`;
+        }
+
+        document.getElementById("ola").innerHTML = ventas;
+      }
+
+        //generador de archivo SQL
+        function generarArchivoSQL() {
+        var archivo = document.createElement("a");
+        var salidas = salida.replace(/<br>/g, "\n").trim();
+        archivo.setAttribute(
+          "href",
+          "data:text/plane;charset=UTF-8," + encodeURIComponent(salida)
+        );
+        archivo.setAttribute("download", "punto_venta.sql");
+        archivo.style.display = "none";
+
+        document.body.appendChild(archivo);
+
+        archivo.click();
+
+        document.body.removeChild(archivo);
+      }
+    
+    </script>
+</head>
+<body>
+    <input
+    type="number"
+    id="CuantosNum"
+    placeholder="No de alumnos a generar"
+    value="100"
+    required
+    />
+    <input type="button" value="Generar Alumnos SQL" onclick="generarAlumno()">
+    <br />
+    <input type="button" value="generar alumnos CSV" onclick="generadorCsv()" />
+    <br />
+    <input type="button" value="generar alumnos JSON" onclick="generadorJson()"
+    />
+    <br />
+    <br />
+    <input type="button" value="Guardar SQL" onclick=" generarArchivoSQL()" />
+    <br />
+    <input type="button" value="Guardar CSV" onclick=" generarArchivoCSV()" />
+    <br />
+    <input type="button" value="Guardar JSON" onclick=" generarArchivoJSON()" />
+
+    <p id="salida"></p>
+</body>
+</html>
