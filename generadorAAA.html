@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    const apellidos = [
+            "Potter", "Granger", "Weasley", "Dumbledore", "Snape", "Hagrid",
+            "Black", "Lupin", "Longbottom", "Malfoy", "Lovegood", "Diggory",
+            "Lestrange", "McGonagall", "Delacour", "Krum", "Dursley", "Filch",
+            "Fudge", "Slughorn", "Lockhart", "Moody", "Tonks", "Maxime",
+            "Flitwick", "Trelawney", "Umbridge", "Crouch", "Bagshot", "Creevey",
+            "Vance", "Bell", "Carrow", "Cattermole", "Chang", "Crabbe",
+            "Dawlish", "Dirk", "Dolohov", "Fenrir", "Figg", "Finnigan",
+            "Fletcher", "Goyle", "Greyback", "Gudgeon", "Hooch", "Hooper",
+            "Jordan", "Kirke", "Kreacher", "Macmillan", "Malkin", "Nott",
+            "Pettigrew", "Pomfrey", "Prewett", "Pucey", "Quirrell", "Scamander",
+            "Scrimgeour", "Shacklebolt", "Shunpike", "Skeeter", "Sprout", "Vane",
+            "Vector", "Voldemort", "Winky", "Zabini", "Abbot", "Ackerley",
+            "Avery", "Baddock", "Bagman", "Bagnold", "Bones", "Bole",
+            "Brocklehurst", "Bulstrode", "Edgecombe", "Elias", "Evans", "Fawcett",
+            "Flint", "Gamp", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Abbott", "Brocklehurst", "Bulstrode", "Edgecombe",
+            "Elias", "Fawcett", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Ackerley", "Avery", "Baddock", "Bagman",
+            "Bagnold", "Bole", "Bones", "Carrow", "Cattermole", "Chang",
+            "Crabbe", "Dirk", "Dolohov", "Fenrir", "Figg", "Finnigan",
+            "Fletcher", "Goyle", "Hooch", "Hooper", "Jordan", "Kirke",
+            "Kreacher", "Malkin", "Pomfrey", "Prewett", "Pucey", "Scamander",
+            "Shacklebolt", "Shunpike", "Skeeter", "Vance", "Vector", "Winky",
+            "Zabini", "Abbot", "Ackerley", "Avery", "Baddock", "Bagman",
+            "Bagnold", "Bole", "Brocklehurst", "Edgecombe", "Elias", "Fawcett",
+            "Flint", "Gamp", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley", "Goldstein", "Greengrass", "Hopkirk", "Montague",
+            "Ollivander", "Patil", "Peakes", "Powell", "Prince", "Thomas",
+            "Travers", "Yaxley"
+    ]
+
+    const apellidosPortugueses = [
+            "Martin", "Bernard", "Dubois", "Thomas", "Robert", "Richard", "Petit", "Durand", "Leroy", "Moreau",
+            "Simon", "Laurent", "Lefebvre", "Michel", "Garcia", "Davis", "Bertrand", "Roux", "Vincent", "Fournier",
+            "Morel", "Girard", "Andre", "Lefevre", "Mercier", "Dupont", "Lambert", "Bonnet", "Francois", "Martinez",
+            "Legrand", "Garnier", "Faure", "Rousseau", "Blanc", "Gauthier", "Sauvage", "Nicolas", "Muller", "Henry",
+            "Lucas", "Brun", "Fontaine", "Chevalier", "Dufour", "Leclerc", "Perrin", "Perez", "Colin", "Roussel",
+            "Huet", "Maillard", "Monnier", "Benoit", "Rey", "Schmitt", "Lemoine", "Leroux", "Marchand", "Jacquet",
+            "Caron", "Rodriguez", "Arnaud", "Barre", "Noel", "Robin", "Pierre", "Michaud", "Guerin", "Joly", "Etienne",
+            "Luc", "Duval", "Guillaume", "Leclercq", "Rolland", "Herbert", "Barbier", "Toussaint", "Denis", "Fabre",
+            "Deschamps", "Roy", "Giraud", "Meyer", "Lefort", "Le gall", "Boucher", "Collet", "Le roux", "Pelletier",
+            "Paris", "Riviere", "Leclerc", "Weber", "Adam", "Lefevre", "Boulanger", "Besson", "Millet", "Aubert",
+            "Fernandez", "Colomb", "Renard", "Boucher", "Lebrun", "Picard", "Chevalier", "Fleury", "Vidal", "Renaud",
+            "Philippe", "Leclercq", "Charpentier", "Bailly", "Royer", "Lefort", "Lefebvre", "Leger", "Poulain", "Remy",
+            "Schneider", "Carre", "Barreau", "Perrot", "Guyot", "Maury", "Barthélémy", "Clement", "Daniel", "Joubert",
+            "Klein", "Leclerc", "Marchal", "Lejeune", "Berger", "Blanchard", "Colin", "Paris", "Marty", "Louis", "Jean",
+            "Roche", "Bruneau", "Lemoine", "Nicolas", "Paris", "Jacques", "Pascal", "Guilbert", "Leclerc", "Lambert",
+            "Doucet", "Mallet", "Breton", "Martel", "Lamy", "Barré", "Hamon", "Hebert", "Reynaud", "Chauvin", "Baron",
+            "Jolivet", "Bail", "Julien", "Michon", "Dubois", "Vasseur", "Mars", "Perrier", "Gillet", "Lamour", "Delaunay",
+            "Daniel", "Roy", "David", "Henry", "Rocher", "Vial", "Schmitt", "Roche", "Chauvet", "Lacoste", "Rousset",
+            "Valette", "Delorme", "Alves", "Sauvage", "Roux", "Garcia", "Ferreira", "Boulanger", "Guyon", "Lelievre",
+            "Deschamps", "Coulon", "Guichard", "Durand", "Thibault", "Delaunay", "Laurent", "Guillot", "Grondin",
+            "Mallet", "Picard", "Baudoin", "Blanchet", "Lacroix", "Bonneau", "Boutin", "Hervé", "Breton", "Da silva"
+
+    ];
+
+    const primerNombre = [
+            "Harry", "Hermione", "Ron", "Albus", "Severus", "Rubeus",
+            "Sirius", "Remus", "Neville", "Ginny", "Fred", "George",
+            "Luna", "Draco", "Cho", "Cedric", "Bellatrix", "Minerva",
+            "Dobby", "Fleur", "Viktor", "Dudley", "Argus", "Cornelius",
+            "Horace", "Molly", "Arthur", "Percy", "Bill", "Charlie",
+            "Kingsley", "Lucius", "Narcissa", "Gilderoy", "Mad-Eye", "Nymphadora",
+            "Kreacher", "Olympe", "Filius", "Peeves", "Nearly Headless", "Sybill",
+            "Aberforth", "Dolores", "Quirinus", "Gellert", "Dedalus", "Pomona",
+            "Filius", "Helena", "Rowena", "Godric", "Salazar", "Cuthbert",
+            "Barty", "Phineas", "Cedric", "Dilys", "Elphias", "Florean",
+            "Fortescue", "Garrick", "Gideon", "Ignotus", "Isolt", "James",
+            "Kendra", "Marietta", "Marvolo", "Modesty", "Mundungus", "Myrtle",
+            "Newt", "Nicolas", "Percival", "Regulus", "Rolanda", "Rufus",
+            "Septima", "Sturgis", "Wilhelmina", "Alastor", "Albert", "Alecto",
+            "Amos", "Andromeda", "Antonin", "Arabella", "Astoria", "Bathilda",
+            "Belladonna", "Charity", "Cormac", "Credence", "Daphne", "Dawlish",
+            "Dirk", "Donaghan", "Doris", "Elphias", "Emmeline", "Ernest",
+            "Euan", "Fang", "Fawkes", "Fenrir", "Flora", "Frank",
+            "Fridwulfa", "Gawain", "Gornuk", "Gregory", "Griphook", "Hepzibah",
+            "Herbert", "Hestia", "Irma", "Karkaroff", "Kreacher", "Leanne",
+            "Lee", "Leta", "Mafalda", "Marge", "Marietta", "Marlene",
+            "Mary", "Minerva", "Molly", "Morfin", "Mundungus", "Nagini",
+            "Narcissa", "Newton", "Norbert", "Norris", "Olympe", "Padma",
+            "Parvati", "Peter", "Phineas", "Poppy", "Quirinus", "Regulus",
+            "Romilda", "Rosmerta", "Rowena", "Rufus", "Salazar", "Scabior",
+            "Scorpius", "Severus", "Sibyll", "Sturgis", "Sylvia", "Ted",
+            "Theodore", "Tom", "Travers", "Vernon", "Viktor", "Vincent",
+            "Wilhelmina", "Winky", "Yaxley", "Zacharias", "Zograf",
+            "Cedric", "Dilys", "Elphias", "Florean", "Fortescue", "Garrick",
+            "Gideon", "Ignotus", "Isolt", "James", "Kendra", "Marietta",
+            "Marvolo", "Modesty", "Mundungus", "Myrtle", "Newt", "Nicolas",
+            "Percival", "Regulus", "Rolanda", "Rufus", "Septima", "Sturgis",
+            "Wilhelmina", "Alastor", "Albert", "Alecto", "Amos", "Andromeda",
+            "Antonin", "Arabella", "Astoria", "Bathilda", "Belladonna", "Charity",
+            "Cormac", "Credence", "Daphne", "Dawlish", "Dirk", "Donaghan",
+            "Doris", "Elphias", "Emmeline", "Ernest", "Euan", "Fang",
+            "Fawkes", "Fenrir", "Flora", "Frank", "Fridwulfa", "Gawain",
+            "Gornuk", "Gregory", "Griphook", "Hepzibah", "Herbert", "Hestia",
+            "Irma", "Karkaroff", "Kreacher", "Leanne", "Lee", "Leta",
+            "Mafalda", "Marge", "Marietta", "Marlene", "Mary", "Minerva",
+            "Molly", "Morfin", "Mundungus", "Nagini", "Narcissa", "Newton",
+            "Norbert", "Norris", "Olympe", "Padma", "Parvati", "Peter",
+            "Phineas", "Poppy", "Quirinus", "Regulus", "Romilda", "Rosmerta",
+            "Rowena", "Rufus", "Salazar", "Scabior", "Scorpius", "Severus",
+            "Sibyll", "Sturgis", "Sylvia", "Ted", "Theodore", "Tom",
+            "Travers", "Vernon", "Viktor", "Vincent", "Wilhelmina", "Winky",
+            "Yaxley", "Zacharias", "Zograf"
+    ];
+
+    const segundoNombre = [
+      "Haruto", "Yui", "Riku", "Sakura", "Ren",
+      "Aoi", "Kaito", "Hina", "Haruki", "Sora",
+      "Yuna", "Ryota", "Koharu", "Hikaru", "Nana",
+      "Takumi", "Aya", "Kazuki", "Akari", "Yuto",
+      "Miku", "Yuki", "Taichi", "Kanna", "Riku",
+      "Mana", "Tsubasa", "Airi", "Daiki", "Misaki",
+      "Yuma", "Asuka", "Kenta", "Yui", "Rina",
+      "Hayato", "Ami", "Satoshi", "Mei", "Kenta",
+      "Eri", "Takeru", "Saki", "Ren", "Hinata",
+      "Rina", "Kazuki", "Asumi", "Haruki", "Akane",
+      "Hiroki", "Natsuki", "Yuto", "Haruna", "Takashi",
+      "Natsumi", "Ryota", "Yui", "Kaito", "Hikari",
+      "Takumi", "Aoi", "Haruto", "Riko", "Daichi",
+      "Miyu", "Takashi", "Kaede", "Hiroto", "Kaho",
+      "Shota", "Yuka", "Yuto", "Mio", "Riku",
+      "Rina", "Kenta", "Akari", "Satoshi", "Asumi",
+      "Takumi", "Yui", "Kaito", "Riko", "Hikari",
+      "Haruto", "Aoi", "Yuto", "Rina", "Kenta",
+      "Sakura", "Ren", "Koharu", "Sora", "Yuki",
+      "Aya", "Takashi", "Akari", "Haruki", "Yuna", "Ivan", "Olga", "Sergei", "Natalia", "Dmitri",
+      "Ekaterina", "Nikolai", "Yulia", "Andrei", "Tatiana",
+      "Alexei", "Svetlana", "Pavel", "Irina", "Yuri",
+      "Anastasia", "Mikhail", "Elena", "Vladimir", "Anna",
+      "Viktor", "Maria", "Dmitry", "Ekaterina", "Nikita",
+      "Larisa", "Igor", "Tatiana", "Boris", "Eva",
+      "Konstantin", "Yelena", "Aleksei", "Irina", "Ilya",
+      "Ksenia", "Roman", "Olga", "Aleksandr", "Yelena",
+      "Anton", "Marina", "Sergey", "Natalya", "Andrey",
+      "Sofia", "Nikita", "Elena", "Vladislav", "Irina",
+      "Oleg", "Yulia", "Aleksandra", "Nikolay", "Maria",
+      "Artem", "Anna", "Kirill", "Daria", "Maxim",
+      "Elena", "Mikhail", "Ekaterina", "Denis", "Nina",
+      "Vitaly", "Tatiana", "Vladislav", "Irina", "Vladimir",
+      "Lyudmila", "Grigory", "Natalya", "Bogdan", "Elena",
+      "Ivan", "Svetlana", "Yaroslav", "Olga", "Nikolai",
+      "Ekaterina", "Vasily", "Elena", "Ilya", "Anna",
+      "Maksim", "Marina", "Stanislav", "Yelena", "Alexey",
+      "Tatiana", "Valentin", "Nina", "Ivan", "Irina"
+
+    ];
+
+    
+    function generarFechaAleatoria() {
+        var año = Math.floor(Math.random() * (2022 - 2000 + 1)) + 2000;
+        var mes = Math.floor(Math.random() * 12) + 1;
+        var dia = Math.floor(Math.random() * 31) + 1;
+        var hora = Math.floor(Math.random() * 24);
+        var minuto = Math.floor(Math.random() * 60);
+        var segundo = Math.floor(Math.random() * 60);
+
+        // Crea el objeto Date con los valores aleatorios
+        var fechaAleatoria = new Date(año, mes - 1, dia, hora, minuto, segundo);
+
+        // Formatea la fecha en el formato deseado (Año-Mes-Día)
+        var fechaFormateada = fechaAleatoria.toISOString().split("T")[0];
+
+        return fechaFormateada;
+      }
+
+
+
+
+    function generarAlumnos() {
+
+      var numeroVentas = document.getElementById("NumRegistros").value;
+      var select = document.getElementById("usuario");
+      var opcion = select.options[select.selectedIndex].value;
+      var salida = ` CREATE DATABASE IF NOT EXISTS sistema_escolar;<br> USE sistema_escolar;<br> CREATE TABLE IF NOT EXISTS ${opcion} (<br>  expediente INT(11) UNSIGNED NOT NULL UNIQUE,<br>  apellido1 VARCHAR(255) NOT NULL,<br>  apellido2 VARCHAR(255),<br>  nombre VARCHAR(255) NOT NULL,<br>  correo_institucional VARCHAR(255) NOT NULL UNIQUE<br>, contraseña VARCHAR(100), fecha_nacimiento DATE);<br> INSERT INTO ${opcion} (expediente, ap1, ap2, nombres, correo, contrasenia, fecha_nac) VALUES <br>`;
+      var matriculaAlumno = 222200017;
+      var matriculaAcademico = 777700020;
+      var matriculaAdmin = 999900020;
+
+      switch (opcion) {
+      case "alumno":
+      for (let i = 0; i < numeroVentas; i++) {
+        salida += ` (${matriculaAlumno}, '${apellidos[Math.floor(Math.random() * 199)]}', 
+        '${apellidosPortugueses[Math.floor(Math.random() * 199)]}', '${primerNombre[Math.floor(Math.random() * 194)]} 
+        ${segundoNombre[Math.floor(Math.random() * 199)]}', '${matriculaAlumno++}@unison.mx', MD5('123'), '`+ generarFechaAleatoria()+`' ),`;
+
+        if (i == numeroVentas-1) {
+          salida = salida.slice(0, -1) + ";"; // Eliminar la coma y agregar punto y coma
+        }
+
+        salida += " <br>";
+      }
+      break;
+
+      case "academicos":
+        for (let i = 0; i < numeroVentas; i++) {
+          salida += ` (${matriculaAcademico}, '${apellidos[Math.floor(Math.random() * 199)]}', 
+          '${apellidosPortugueses[Math.floor(Math.random() * 199)]}', '${primerNombre[Math.floor(Math.random() * 194)]} 
+          ${segundoNombre[Math.floor(Math.random() * 199)]}', '${matriculaAcademico++}@acadunison.mx', MD5('123'), '`+ generarFechaAleatoria()+`' ),`;
+
+          if (i == numeroVentas-1) {
+            salida = salida.slice(0, -1) + ";"; // Eliminar la coma y agregar punto y coma
+          }
+
+          salida += " <br>";
+        }
+      break;
+
+      case "administrativos":
+        for (let i = 0; i < numeroVentas; i++) {
+          salida += ` (${matriculaAdmin}, '${apellidos[Math.floor(Math.random() * 199)]}', 
+          '${apellidosPortugueses[Math.floor(Math.random() * 199)]}', '${primerNombre[Math.floor(Math.random() * 194)]} 
+          ${segundoNombre[Math.floor(Math.random() * 199)]}', '${matriculaAdmin++}@adminunison.mx', MD5('123'), '`+ generarFechaAleatoria()+`' ),`;
+
+          if (i == numeroVentas-1) {
+            salida = salida.slice(0, -1) + ";"; // Eliminar la coma y agregar punto y coma
+          }
+
+          salida += " <br>";
+        }
+      break;
+
+    }
+
+      document.getElementById("salida").innerHTML = salida;
+    }
+
+
+    function descargarSQL() {
+      var contenidoSQL = document.getElementById("salida").innerText;
+      var blob = new Blob([contenidoSQL], { type: "text/plain" });
+      var url = window.URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "alumnos.sql";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+  Número de alumnos/academicos/administrativos a generar:
+  <input type="number" id="NumRegistros" required/>
+  <select name="opcion" id="usuario">
+    <option value="alumno">
+      Alumnos
+    </option>
+
+    <option value="academicos">
+      Académicos
+    </option>
+
+    <option value="administrativos">
+    Administrativos
+    </option></select>
+  <br>
+  <input type="button" value="Generar en SQL" onclick="generarAlumnos()" />
+  <input type="button" value="Descargar archivo SQL" onclick="descargarSQL()">
+  <p id="salida"></p>
+
+
+</body>
+
+</html>
